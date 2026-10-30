@@ -23,3 +23,7 @@ export function MiniMotif({ index }: { index: number }) {
 export function PageNetwork() {
   return <svg className="page-network" viewBox="0 0 600 220" aria-hidden="true"><g>{[0,1,2,3,4].map(i => <path key={i} d={`M590 ${30+i*38} C480 ${12+i*42}, 420 ${75+i*18}, 330 ${54+i*30} S190 ${55+i*28}, 42 ${28+i*39}`} />)}</g>{[[590,30],[590,106],[590,182],[330,114],[173,139],[42,184]].map(([x,y],i)=><circle key={i} className={i%2?'accent':''} cx={x} cy={y} r={i>2?3:4}/>)}</svg>;
 }
+
+export function OrganicDivider() {
+  return <div className="organic-divider" aria-hidden="true"><svg viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 45 C180 45 250 42 402 45 S570 45 600 45 S790 49 1200 45"/><path d="M600 45 C555 42 530 22 488 18"/><path d="M600 45 C648 44 676 19 720 15"/><path d="M600 45 C558 49 535 70 498 75"/><path d="M600 45 C646 49 675 70 714 74"/><circle cx="600" cy="45" r="5"/><circle className="accent" cx="488" cy="18" r="3"/><circle cx="720" cy="15" r="3"/><circle cx="498" cy="75" r="3"/><circle className="accent" cx="714" cy="74" r="3"/></svg></div>;
+}
