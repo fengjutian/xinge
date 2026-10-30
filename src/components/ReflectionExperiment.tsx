@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { Download, ExternalLink, Trash2, Upload } from 'lucide-react';
 import { reflectionStorage, ReflectionEntry } from '../lib/reflectionStorage';
+import MechanismLibrary from './MechanismLibrary';
 
 function isReflectionEntry(value: unknown): value is ReflectionEntry {
   if (!value || typeof value !== 'object') return false;
@@ -84,6 +85,8 @@ export default function ReflectionExperiment() {
     <span className="eyebrow">02 / 心理机制实验室</span>
     <h2>用 ABC，看见事件与反应之间的解释。</h2>
     <p className="intro">ABC 模型来自理性情绪行为疗法（REBT）。它提醒我们：诱发事件会影响人，但我们如何理解事件，也参与塑造之后的情绪与行为。<a className="cite-mark" href="#abc-reference-1" aria-label="查看参考资料 1">[1]</a> 这个模型用于观察，不是要求你否认现实或立刻改变感受。</p>
+
+    <MechanismLibrary />
 
     <div className="abc-intro">
       <div className="abc-diagram" aria-label="ABC 理论关系图">
