@@ -11,7 +11,7 @@ import ResearchNotes from './components/ResearchNotes';
 import SelfAwareness from './components/SelfAwareness';
 import TodayQuestion from './components/TodayQuestion';
 import ValueCompass from './components/ValueCompass';
-import { BranchNetwork, MiniMotif, OrganicDivider, PageNetwork } from './components/OrganicVisuals';
+import { BranchNetwork, MiniMotif, PageNetwork } from './components/OrganicVisuals';
 
 const navigation = [
   ['探索地图', '/map'], ['知识网络', '/knowledge'], ['今日一问', '/question'],
@@ -54,7 +54,6 @@ function Home() {
     <section className="hero"><div><span className="eyebrow">● 一个慢一点的自我探索空间</span><motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>你的内心世界，<br /><em>值得被慢慢理解。</em></motion.h1><p>从心理学出发，观察情绪、想法与行动之间的关系。不急着给自己下结论，先为理解留出一点空间。</p><Link className="primary" to="/question">开始今天的探索 <ArrowRight size={16} /></Link><div className="footnote">01　理解先于判断　────────　每次只前进一步</div></div><div className="hero-art"><BranchNetwork /><small className="cap a">NOTICE / 觉察</small><small className="cap b">UNDERSTAND / 理解</small><small className="cap c">GROW / 生长</small></div></section>
     <section className="principle"><b>不急着定义你是谁。</b><p>心理学概念是一盏灯，不是一张标签。这里帮助你提出更好的问题，而不是替你给出唯一答案。</p><Leaf /></section>
     <section className="feature-directory"><span className="eyebrow">探索目录 / EXPLORE</span><h2>每次，只走进一个空间。</h2><p className="intro">选择你此刻最想了解的方向。每项工具都有独立页面，你可以随时从顶部导航切换。</p><div className="feature-grid">{navigation.map(([label, path], index) => <Link to={path} key={path} className="feature-card"><div className="feature-symbol"><small>0{index + 1}</small><MiniMotif index={index} /></div><h3>{label}</h3><p>{featureDescriptions[index]}</p><span>进入探索 →</span></Link>)}</div></section>
-    <OrganicDivider />
     <section className="closing"><span className="brand-mark"><Leaf /></span><small className="eyebrow">A NOTE TO YOURSELF</small><h2>你不必立刻想明白。<br /><em>先对自己保持好奇。</em></h2><p>探索不是为了成为一个标准答案，而是逐渐学会更准确、更温柔地理解自己。</p><Link to="/question">开始今天的探索 ↗</Link></section>
   </>;
 }
