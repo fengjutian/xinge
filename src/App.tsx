@@ -59,7 +59,25 @@ function Home() {
 }
 
 function MapPage() {
-  return <section className="section map page-section"><span className="eyebrow">探索地图 / FIELD MAP</span><h2>看见内在经验的连接。</h2><p className="intro">想法、情绪、需要与行动可以放在同一张地图上观察。选择一个概念，看看它如何帮助你理解一次具体经历。</p><div className="map-grid"><InnerCosmos /><aside><small>HOW TO EXPLORE</small><h3>从一个小问题开始。</h3><p>不需要一次弄懂全部。选择一个让你有共鸣的概念，再把它带回今天的真实生活。</p><ol><li>观察发生了什么</li><li>辨认脑海里的解释</li><li>留意情绪与在意</li></ol><Link to="/experiment">进入机制实验室 →</Link></aside></div></section>;
+  const lenses = [
+    ['解释', '我如何理解正在发生的事？', '先写下脑海里自动出现的那句话，再问：它是事实、推测，还是过去经验带来的预期？'],
+    ['情绪', '此刻有什么感受靠近我？', '尝试使用更具体的词，例如失落、紧张、委屈或期待，而不只说“好”或“不好”。'],
+    ['需要', '这份感受在保护什么？', '情绪背后可能是在意连接、安全、尊重、掌控感或休息。需要不是要求别人必须满足。'],
+    ['行动', '我可以迈出怎样的一小步？', '选择一个今天能完成、结果可以观察的行动，不要求一次解决全部问题。'],
+  ] as const;
+  const routes = [
+    ['当思绪反复打转', '区分事实、解释与预测，把模糊担心变成可以回应的问题。', '/experiment'],
+    ['当情绪难以命名', '从身体感觉、强度和情境开始，为感受留下一个具体位置。', '/journal'],
+    ['当方向变得模糊', '回到真正重视的品质，观察今天的选择是否与它靠近。', '/values'],
+  ] as const;
+  return <section className="section map page-section">
+    <span className="eyebrow">探索地图 / FIELD MAP</span><h2>看见内在经验的连接。</h2><p className="intro">想法、情绪、需要与行动可以放在同一张地图上观察。选择一个概念，看看它如何帮助你理解一次具体经历。</p>
+    <div className="map-grid"><InnerCosmos /><aside><small>HOW TO EXPLORE</small><h3>从一个小问题开始。</h3><p>不需要一次弄懂全部。选择一个让你有共鸣的概念，再把它带回今天的真实生活。</p><ol><li>观察发生了什么</li><li>辨认脑海里的解释</li><li>留意情绪与在意</li></ol><Link to="/experiment">进入机制实验室 →</Link></aside></div>
+    <div className="map-story"><div><span className="eyebrow">一次经历如何流动</span><h3>同一件事，可以从不同位置理解。</h3><p>例如：发出消息后迟迟没有收到回复。下面不是唯一解释，而是一条帮助观察的路线。</p></div><div className="story-flow">{[['发生','消息暂时没有回复'],['解释','“是不是我说错了？”'],['感受','紧张，也有一点失落'],['行动','先确认事实，晚些再询问']].map(([label,text],i)=><div className="story-node" key={label}><small>0{i+1} / {label}</small><b>{text}</b></div>)}</div><p className="story-note">换一个解释，情绪和行动可能随之改变；但这不代表要强迫自己“积极思考”。先寻找更完整、更贴近证据的理解。</p></div>
+    <div className="map-lenses"><div className="map-subhead"><span className="eyebrow">四个观察镜头</span><h3>把抽象概念带回具体生活。</h3></div><div className="lens-grid">{lenses.map(([title,question,body],i)=><article key={title}><span>0{i+1}</span><h4>{title}</h4><b>{question}</b><p>{body}</p></article>)}</div></div>
+    <div className="map-routes"><div className="map-subhead"><span className="eyebrow">继续探索 / NEXT STEP</span><h3>从此刻最贴近你的入口继续。</h3></div><div className="route-grid">{routes.map(([title,body,path],i)=><Link to={path} key={title}><small>PATH 0{i+1}</small><h4>{title}</h4><p>{body}</p><span>进入这个空间 →</span></Link>)}</div></div>
+    <p className="map-safety">这里提供的是自我观察工具，不是心理诊断。如果情绪困扰持续影响睡眠、工作或日常生活，可以考虑向合格的心理健康专业人士寻求支持。</p>
+  </section>;
 }
 
 function Layout() {
