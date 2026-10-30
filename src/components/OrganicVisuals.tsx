@@ -14,10 +14,18 @@ export function BranchNetwork() {
 }
 
 export function MiniMotif({ index }: { index: number }) {
-  const mode = index % 3;
-  if (mode === 0) return <svg className="mini-motif" viewBox="0 0 88 52" aria-hidden="true"><path d="M8 42Q28 35 42 10M8 42Q38 38 54 14M8 42Q48 43 72 24"/><circle cx="8" cy="42" r="4"/><circle cx="42" cy="10" r="3"/><circle cx="54" cy="14" r="3"/><circle cx="72" cy="24" r="3"/></svg>;
-  if (mode === 1) return <svg className="mini-motif" viewBox="0 0 88 52" aria-hidden="true"><path d="M12 10V39M32 10V39M52 10V39M72 10V39"/>{[12,32,52,72].map(x=><circle key={x} cx={x} cy="10" r="3"/>)}{[12,32,52,72].map(x=><circle key={x} className="accent" cx={x} cy="39" r="3"/>)}</svg>;
-  return <svg className="mini-motif" viewBox="0 0 88 52" aria-hidden="true"><path d="M8 42Q38 31 44 8M44 8Q54 27 78 32M44 8Q38 31 44 45M44 8Q25 20 12 22"/><circle cx="44" cy="8" r="4"/><circle cx="8" cy="42" r="3"/><circle cx="78" cy="32" r="3"/><circle cx="44" cy="45" r="3"/><circle cx="12" cy="22" r="3"/></svg>;
+  const common = { className: 'mini-motif', viewBox: '0 0 88 52', 'aria-hidden': true } as const;
+  switch (index) {
+    case 0: return <svg {...common}><path d="M10 39C24 33 25 15 42 12S63 23 77 13M10 39C30 42 49 35 66 39M42 12C45 23 53 31 66 39"/><circle className="accent" cx="10" cy="39" r="4"/><circle cx="42" cy="12" r="3"/><circle cx="77" cy="13" r="3"/><circle cx="66" cy="39" r="3"/></svg>;
+    case 1: return <svg {...common}><path d="M10 27L28 11L45 27L65 12L78 31M10 27L31 42L45 27L62 42L78 31"/><circle cx="10" cy="27" r="3"/><circle cx="28" cy="11" r="3"/><circle className="accent" cx="45" cy="27" r="4"/><circle cx="65" cy="12" r="3"/><circle cx="78" cy="31" r="3"/><circle cx="31" cy="42" r="3"/><circle cx="62" cy="42" r="3"/></svg>;
+    case 2: return <svg {...common}><path d="M44 43V30C44 21 34 21 34 13C34 5 45 5 51 9C59 15 53 22 47 23M44 43C30 39 22 31 13 22M44 43C56 39 67 31 76 19"/><circle className="accent" cx="44" cy="43" r="4"/><circle cx="13" cy="22" r="3"/><circle cx="76" cy="19" r="3"/><circle cx="47" cy="23" r="2.5"/></svg>;
+    case 3: return <svg {...common}><path d="M8 29C17 29 17 14 27 14S36 39 46 39S56 20 65 20S72 29 80 29"/><circle cx="8" cy="29" r="3"/><circle className="accent" cx="27" cy="14" r="3.5"/><circle cx="46" cy="39" r="3"/><circle className="accent" cx="65" cy="20" r="3"/><circle cx="80" cy="29" r="3"/></svg>;
+    case 4: return <svg {...common}><path d="M44 7L67 26L44 45L21 26Z M44 7V45M21 26H67"/><circle className="accent" cx="44" cy="7" r="3.5"/><circle cx="67" cy="26" r="3"/><circle cx="44" cy="45" r="3"/><circle cx="21" cy="26" r="3"/><circle cx="44" cy="26" r="3"/></svg>;
+    case 5: return <svg {...common}><path d="M9 26H25C30 26 30 13 38 13S46 39 54 39S59 26 66 26H79"/><circle cx="9" cy="26" r="3"/><circle className="accent" cx="25" cy="26" r="3.5"/><circle cx="38" cy="13" r="3"/><circle className="accent" cx="54" cy="39" r="3.5"/><circle cx="66" cy="26" r="3"/><circle cx="79" cy="26" r="3"/></svg>;
+    case 6: return <svg {...common}><path d="M44 45V8M44 33C35 31 29 25 24 17M44 27C53 25 60 18 65 10M44 39C34 39 20 36 12 30M44 35C56 36 69 33 78 26"/><circle className="accent" cx="44" cy="45" r="4"/><circle cx="44" cy="8" r="3"/><circle cx="24" cy="17" r="3"/><circle cx="65" cy="10" r="3"/><circle cx="12" cy="30" r="3"/><circle cx="78" cy="26" r="3"/></svg>;
+    case 7: return <svg {...common}><path d="M42 7V45M35 14C25 14 17 20 11 27C18 35 26 39 35 39M49 14C59 14 67 20 73 27C66 35 58 39 49 39M27 26C30 22 34 22 38 26M57 26C54 22 50 22 46 26"/><circle cx="11" cy="27" r="3"/><circle className="accent" cx="27" cy="26" r="3"/><circle className="accent" cx="57" cy="26" r="3"/><circle cx="73" cy="27" r="3"/></svg>;
+    default: return <svg {...common}><path d="M14 11H62M14 21H73M14 31H55M14 41H66M62 11C70 15 69 24 73 21M55 31C62 32 61 39 66 41"/><circle className="accent" cx="14" cy="11" r="3"/><circle cx="14" cy="21" r="3"/><circle cx="14" cy="31" r="3"/><circle cx="14" cy="41" r="3"/><circle cx="62" cy="11" r="3"/><circle cx="73" cy="21" r="3"/><circle cx="55" cy="31" r="3"/><circle cx="66" cy="41" r="3"/></svg>;
+  }
 }
 
 export function PageNetwork() {
